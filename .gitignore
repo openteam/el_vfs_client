@@ -1,0 +1,7 @@
+*.swp
+.bundle/
+bin/
+db/*.sqlite3
+log/
+pkg/
+tmp/
