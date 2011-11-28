@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = 'Summary of ElVfsClient.'
   s.description = 'Description of ElVfsClient.'
 
-  s.files = Dir['{app,config}/**/*'] + ['MIT-LICENSE', 'Rakefile', 'README.rdoc']
+  s.files = Dir['{app,config,lib}/**/*'] + ['MIT-LICENSE', 'Rakefile', 'README.rdoc']
 
   s.add_dependency 'configliere'
   s.add_dependency 'curb'
