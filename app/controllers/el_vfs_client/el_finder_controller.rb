@@ -4,6 +4,10 @@ module ElVfsClient
   class ElFinderController < ApplicationController
     respond_to :json, :html
 
+    def show
+      render :file => 'el_finder/layout', :layout => false
+    end
+
     def run
       params.delete(:format)
       params.delete(:controller)
