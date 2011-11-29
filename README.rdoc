@@ -65,6 +65,8 @@ mount ElVfsClient::Engine => '/el_vfs'
 
 === Set el_vfs url
 
+In config/settings.yml
+
    el_vfs:
       protocol: <protocol>
       host: <host>
