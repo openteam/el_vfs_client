@@ -25,7 +25,7 @@ For Rails 3.1.x in application.js
 
    $(function() {
      $('#elfinder').elfinder({
-       url: 'el_vfs/api/elfinder',
+       url: '/api/el_finder/v2',
        lang: 'en'
      });
    });
@@ -61,7 +61,7 @@ For Rails 3.1.x in application.js
 
 === Routes
 
-mount ElVfsClient::Engine => '/el_vfs'
+mount ElVfsClient::Engine => '/'
 
 === Set el_vfs url
 
