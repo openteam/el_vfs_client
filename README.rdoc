@@ -65,10 +65,10 @@ mount ElVfsClient::Engine => '/el_vfs'
 
 === Set el_vfs url
 
-el_vfs:
-  protocol: <protocol>
-  host: <host>
-  port: <port>
+   el_vfs:
+      protocol: <protocol>
+      host: <host>
+      port: <port>
 
 = LICENSE
 
