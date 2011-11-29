@@ -1,3 +1,75 @@
 = ElVfsClient
 
+elFinder 2.0 (beta) jQuery plugin for VFS
+
+= Quick start
+
+Gemfile:
+
+   gem 'el_vfs_client'
+
+Install gem:
+
+   $ bundle install
+
+For Rails 3.1.x in application.js
+
+   /*
+    ...
+    *= require jquery
+    *= require jquery_ujs
+    ...
+    *= require jquery-ui
+    *= require el_vfs/elfinder.js
+    */
+
+   $(function() {
+     $('#elfinder').elfinder({
+       url: 'el_vfs/api/elfinder',
+       lang: 'en'
+     });
+   });
+
+In view:
+
+   <div id='elfinder'></div>
+
+=== Styling
+
+For Rails 3.1.x in application.css
+
+   /*
+    *= require_self
+    ...
+    *= require el_vfs/el_vfs
+    ...
+    */
+
+=== Localize:
+
+For Rails 3.1.x in application.js
+
+   /*
+    ...
+    *= require jquery-ui
+    *= require el_vfs/elfinder.js
+    *= require el_vfs/i18n/elfinder.ru.js
+    */
+   ...
+   lang: 'ru'
+   ...
+
+=== Routes
+
+mount ElVfsClient::Engine => '/el_vfs'
+
+=== Set el_vfs url
+
+el_vfs:
+  protocol: <protocol>
+  host: <host>
+  port: <port>
+
+= LICENSE
+
 This project rocks and uses MIT-LICENSE.
