@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    el_vfs_client (0.0.4)
+    el_vfs_client (0.0.4.1)
       configliere
       curb
 
