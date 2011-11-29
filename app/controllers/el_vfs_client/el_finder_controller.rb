@@ -8,7 +8,7 @@ module ElVfsClient
       params.delete(:format)
       params.delete(:controller)
       params.delete(:action)
-      c = Curl::Easy.new("#{Settings[:el_vfs][:protocol]}://#{Settings[:el_vfs][:host]}:#{Settings[:el_vfs][:port]}/el_vfs/api/elfinder") do |curl|
+      c = Curl::Easy.new("#{Settings[:el_vfs][:protocol]}://#{Settings[:el_vfs][:host]}:#{Settings[:el_vfs][:port]}/api/el_finder/v2") do |curl|
         curl.headers['User-Agent'] = request.user_agent
         curl.headers['Accept'] = 'application/json'
         curl.headers['CLIENT_IP'] = request.env['HTTP_CLIENT_IP']

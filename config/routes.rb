@@ -1,5 +1,5 @@
 module ElVfsClient
   Engine.routes.draw do
-    match '/api/elfinder' => 'el_finder#run'
+    match '/api/el_finder/v2' => 'el_finder#run'
   end
 end
