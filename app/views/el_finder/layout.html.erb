@@ -19,6 +19,7 @@
           $('#elfinder').elfinder({
             url: '/api/el_finder/v2',
             lang: 'ru',
+            height: window.innerHeight - 23,
             getFileCallback : function(file) {
               window.opener.CKEDITOR.tools.callFunction(funcNum, file);
               window.close();
