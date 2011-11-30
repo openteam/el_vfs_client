@@ -17,5 +17,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'configliere'
   s.add_dependency 'curb'
+  s.add_dependency 'uuid'
   s.add_dependency 'rails'
 end

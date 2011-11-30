@@ -1,10 +1,14 @@
 require 'curb'
 require 'configliere'
+require 'uuid'
+
 module ElVfsClient
   class ElFinderController < ApplicationController
     respond_to :json, :html
 
     def show
+      session[:root_path] = session[:root_path]  || (params[:root_path] ? params[:root_path] : generate_folder_uuid)
+
       render :file => 'el_finder/layout', :layout => false
     end
 
@@ -12,7 +16,8 @@ module ElVfsClient
       params.delete(:format)
       params.delete(:controller)
       params.delete(:action)
-      c = Curl::Easy.new("#{Settings[:el_vfs][:protocol]}://#{Settings[:el_vfs][:host]}:#{Settings[:el_vfs][:port]}/api/el_finder/v2") do |curl|
+
+      c = Curl::Easy.new(url) do |curl|
         curl.headers['User-Agent'] = request.user_agent
         curl.headers['Accept'] = 'application/json'
         curl.headers['CLIENT_IP'] = request.env['HTTP_CLIENT_IP']
@@ -36,5 +41,15 @@ module ElVfsClient
         format.json { render :json => c.body_str }
       end
     end
+
+    private
+      def url
+        url = "#{Settings[:el_vfs][:protocol]}://#{Settings[:el_vfs][:host]}:#{Settings[:el_vfs][:port]}/api/el_finder/v2"
+        url << "/#{Settings[:el_vfs][:root_path]}/#{session[:root_path]}" if session[:root_path]
+      end
+
+      def generate_folder_uuid
+        "#{Time.now.year}_#{Time.now.month}_#{Time.now.day}_#{Time.now.hour}_#{Time.now.min}_#{UUID.generate.split('-').first}"
+      end
   end
 end

@@ -18,14 +18,16 @@
 
           $('#elfinder').elfinder({
             url: '/api/el_finder/v2',
-            lang: 'ru',
             height: window.innerHeight - 23,
+            lang: 'ru',
             getFileCallback : function(file) {
               window.opener.CKEDITOR.tools.callFunction(funcNum, file);
               window.close();
               },
             resizable: false
           }).elfinder('instance');
+
+          $('#root_path', window.parent.document).val('<%= session[:root_path] %>');
         });
       //]]>
     </script>
