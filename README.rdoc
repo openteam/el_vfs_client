@@ -61,7 +61,7 @@ For Rails 3.1.x in application.js
 
 === Routes
 
-mount ElVfsClient::Engine => '/'
+   mount ElVfsClient::Engine => '/'
 
 === Set el_vfs url
 
