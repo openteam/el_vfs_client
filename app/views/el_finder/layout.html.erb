@@ -18,6 +18,9 @@
 
           $('#elfinder').elfinder({
             url: '/api/el_finder/v2',
+            customData: {
+              root_path: '<%= @root_path %>'
+            },
             height: window.innerHeight - 23,
             lang: 'ru',
             ui: ['toolbar'],
@@ -31,7 +34,7 @@
             resizable: false
           }).elfinder('instance');
 
-          $('#root_path', window.parent.document).val('<%= session[:root_path] %>');
+          $('#root_path', window.parent.document).val('<%= @root_path %>');
         });
       //]]>
     </script>

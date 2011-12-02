@@ -3,12 +3,11 @@ require 'configliere'
 require 'uuid'
 
 module ElVfsClient
-  class ElFinderController < ApplicationController
+  class ElFinderController < ActionController::Base
     respond_to :json, :html
 
     def show
-      session[:root_path] = session[:root_path]  || (params[:root_path] ? params[:root_path] : generate_folder_uuid)
-
+      @root_path = root_path
       render :file => 'el_finder/layout', :layout => false
     end
 
@@ -45,11 +44,12 @@ module ElVfsClient
     private
       def url
         url = "#{Settings[:el_vfs][:protocol]}://#{Settings[:el_vfs][:host]}:#{Settings[:el_vfs][:port]}/api/el_finder/v2"
-        url << "/#{Settings[:el_vfs][:root_path]}/#{session[:root_path]}" if session[:root_path]
+        url << params.delete(:root_path)
+        return url
       end
 
-      def generate_folder_uuid
-        "#{Time.now.year}_#{Time.now.month}_#{Time.now.day}_#{Time.now.hour}_#{Time.now.min}_#{UUID.generate.split('-').first}"
+      def root_path
+        PathInterpolator.path(params)
       end
   end
 end
