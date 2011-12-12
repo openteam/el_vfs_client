@@ -21,16 +21,27 @@
             customData: {
               root_path: '<%= @root_path %>'
             },
-            height: window.innerHeight - 23,
             lang: 'ru',
-            ui: ['toolbar'],
+            ui: ['tree', 'toolbar'],
+            commandsOptions: {
+              getfile: {
+                onlyURL: false
+              }
+            },
             uiOptions: {
-              toolbar: [['mkdir', 'upload', 'quicklook', 'rm']],
+              toolbar: [['back', 'mkdir', 'upload', 'quicklook', 'rm']],
             },
             getFileCallback : function(file) {
-              window.opener.CKEDITOR.tools.callFunction(funcNum, file);
-              window.close();
-              },
+              var info_path = $('#info_path', window.parent.document);
+
+              if (info_path.length != 0){
+                info_path.val(file.hash);
+                parent.$('#info_path').trigger('change');
+              }else{
+                window.opener.CKEDITOR.tools.callFunction(funcNum, file.url);
+                window.close();
+              };
+            },
             resizable: false
           }).elfinder('instance');
 

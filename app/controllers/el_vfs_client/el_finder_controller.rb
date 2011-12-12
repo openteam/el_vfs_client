@@ -30,6 +30,9 @@ module ElVfsClient
         parameters = params.map{ |key, value| Curl::PostField.content(key, value)}
         files = upload.map{ |file| Curl::PostField.file('upload[]', file.path, file.original_filename) }
         c.http_post(*parameters, *files)
+      elsif params['cmd'] == 'put'
+        parameters = params.map{ |key, value| Curl::PostField.content(key, value)}
+        c.http_post(*parameters)
       else
         c.url << "?#{params.to_query}"
         c.http_get
