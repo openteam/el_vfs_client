@@ -46,7 +46,7 @@ module ElVfsClient
 
     private
       def url
-        url = "#{Settings[:el_vfs][:protocol]}://#{Settings[:el_vfs][:host]}:#{Settings[:el_vfs][:port]}/api/el_finder/v2"
+        url = "#{Settings['vfs.host']}/api/el_finder/v2"
         url << params.delete(:root_path)
         return url
       end
