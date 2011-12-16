@@ -1,6 +1,5 @@
 require 'curb'
 require 'configliere'
-require 'uuid'
 
 module ElVfsClient
   class ElFinderController < ActionController::Base
@@ -52,7 +51,7 @@ module ElVfsClient
       end
 
       def root_path
-        PathInterpolator.path(params)
+        PathInterpolator.path(request)
       end
   end
 end
