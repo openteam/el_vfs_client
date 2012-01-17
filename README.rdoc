@@ -67,10 +67,8 @@ For Rails 3.1.x in application.js
 
 In config/settings.yml
 
-   el_vfs:
-      protocol: <protocol>
-      host: <host>
-      port: <port>
+   vfs:
+      url: <url>
 
 = LICENSE
 
