@@ -44,8 +44,21 @@ module ElVfsClient
     end
 
     private
+      # NOTE: deprecation warning
+      def storage_url
+        if Settings['vfs.url']
+          puts ''
+          puts '=== DEPRECATION WARNING: Use storage.url instead of vfs.url'
+          puts ''
+
+          return Settings['vfs.url']
+        end
+
+        Settings['storage.url']
+      end
+
       def url
-        url = "#{Settings['vfs.url']}/api/el_finder/v2"
+        url = "#{storage_url}/api/el_finder/v2"
         url << params.delete(:root_path)
         return url
       end
