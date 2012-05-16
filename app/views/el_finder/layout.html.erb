@@ -34,6 +34,7 @@
             getFileCallback : function(file) {
               var info_path = $('#info_path', window.parent.document);
               var elfinder_picture_dialog = $('#elfinder_picture_dialog', window.parent.document);
+              var file_url = $('#file_url', window.parent.document);
 
               if (elfinder_picture_dialog.length !=0){
                 var input = $('#'+elfinder_picture_dialog.attr('id_data'), window.parent.document);
@@ -43,6 +44,8 @@
               }else if (info_path.length != 0){
                 info_path.val(file.hash);
                 parent.$('#info_path').trigger('change');
+              }else if (file_url.length != 0){
+                file_url.val(file.url);
               }else{
                 window.opener.CKEDITOR.tools.callFunction(funcNum, file.url);
                 window.close();
