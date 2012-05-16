@@ -1,18 +1,183 @@
 /*!
  * elFinder - file manager for web
- * Version 2.0 beta (2011-07-10)
+ * Version 2.0 rc1 (2012-04-10)
  * http://elfinder.org
  *
- * Copyright 2009-2011, Studio 42
+ * Copyright 2009-2012, Studio 42
  * Licensed under a 3 clauses BSD license
 
-/* File: /home/troex/Sites/git/elfinder-2.x/css/commands.css
-/*****************************************************************
-/*                          COMMANDS STYLES
-/*****************************************************************
+.elfinder-dialog-resize
+  margin-top: .3em
 
-/********************** COMMAND 'HELP' ***************************
-/* edit text file textarea
+.elfinder-resize-type
+  float: left
+  margin-bottom: .4em
+
+.elfinder-resize-control
+  padding-top: 3em
+  input[type=text]
+    border: 1px solid #aaa
+    text-align: right
+
+.elfinder-resize-preview
+  width: 400px
+  height: 400px
+  padding: 10px
+  background: #fff
+  border: 1px solid #aaa
+  float: right
+  position: relative
+  overflow: auto
+
+.elfinder-resize-handle
+  position: relative
+
+.elfinder-resize-handle-hline, .elfinder-resize-handle-vline
+  position: absolute
+  background-image: image_url('el_vfs/elfinder/crop.gif')
+
+.elfinder-resize-handle-hline
+  width: 100%
+  height: 1px!important
+  background-repeat: repeat-x
+
+.elfinder-resize-handle-vline
+  width: 1px!important
+  height: 100%
+  background-repeat: repeat-y
+
+.elfinder-resize-handle-hline-top
+  top: 0
+  left: 0
+
+.elfinder-resize-handle-hline-bottom
+  bottom: 0
+  left: 0
+
+.elfinder-resize-handle-vline-left
+  top: 0
+  left: 0
+
+.elfinder-resize-handle-vline-right
+  top: 0
+  right: 0
+
+.elfinder-resize-handle-point
+  position: absolute
+  width: 8px
+  height: 8px
+  border: 1px solid #777
+  background: 0 0
+
+.elfinder-resize-handle-point-n
+  top: 0
+  left: 50%
+  margin-top: -5px
+  margin-left: -5px
+
+.elfinder-resize-handle-point-ne
+  top: 0
+  right: 0
+  margin-top: -5px
+  margin-right: -5px
+
+.elfinder-resize-handle-point-e
+  top: 50%
+  right: 0
+  margin-top: -5px
+  margin-right: -5px
+
+.elfinder-resize-handle-point-se
+  bottom: 0
+  right: 0
+  margin-bottom: -5px
+  margin-right: -5px
+
+.elfinder-resize-handle-point-s
+  bottom: 0
+  left: 50%
+  margin-bottom: -5px
+  margin-left: -5px
+
+.elfinder-resize-handle-point-sw
+  bottom: 0
+  left: 0
+  margin-bottom: -5px
+  margin-left: -5px
+
+.elfinder-resize-handle-point-w
+  top: 50%
+  left: 0
+  margin-top: -5px
+  margin-left: -5px
+
+.elfinder-resize-handle-point-nw
+  top: 0
+  left: 0
+  margin-top: -5px
+  margin-left: -5px
+
+.elfinder-resize-spinner
+  position: absolute
+  width: 200px
+  height: 30px
+  top: 50%
+  margin-top: -25px
+  left: 50%
+  margin-left: -100px
+  text-align: center
+  background: image_url('el_vfs/elfinder/progress.gif') center bottom repeat-x
+
+.elfinder-resize-row
+  margin-bottom: 7px
+  position: relative
+
+.elfinder-resize-label
+  float: left
+  width: 80px
+  padding-top: 3px
+
+.elfinder-resize-reset
+  width: 16px
+  height: 16px
+  position: absolute
+  margin-top: -8px
+
+.elfinder-dialog .elfinder-dialog-resize
+  .ui-resizable-e
+    height: 100%
+    width: 10px
+  .ui-resizable-s
+    width: 100%
+    height: 10px
+  .ui-resizable-se
+    background: 0 0
+    bottom: 0
+    right: 0
+    margin-right: -7px
+    margin-bottom: -7px
+
+.elfinder-dialog-resize
+  .ui-icon-grip-solid-vertical
+    position: absolute
+    top: 50%
+    right: 0
+    margin-top: -8px
+    margin-right: -11px
+  .ui-icon-grip-solid-horizontal
+    position: absolute
+    left: 50%
+    bottom: 0
+    margin-left: -8px
+    margin-bottom: -11px
+
+.elfinder-resize-row .elfinder-buttonset
+  float: right
+
+.elfinder-resize-rotate-slider
+  float: left
+  width: 195px
+  margin: 7px 7px 0
 
 .elfinder-file-edit
   width: 99%
@@ -21,14 +186,10 @@
   padding: 2px
   border: 1px solid #ccc
 
-/* help dialog
-
 .elfinder-help
   margin-bottom: .5em
   .ui-tabs-panel
     padding: .5em
-
-/* fix tabs
 
 .elfinder-dialog .ui-tabs .ui-tabs-nav li a
   padding: .2em 1em
@@ -56,7 +217,7 @@
 
 .elfinder-help h3
   font-size: 1.5em
-  margin: .2em 0 .3em 0
+  margin: .2em 0 .3em
 
 .elfinder-help-separator
   clear: both
@@ -84,7 +245,7 @@
   font-size: .9em
 
 .elfinder-help-disabled
-  font-weight: bold
+  font-weight: 700
   text-align: center
   margin: 90px 0
 
@@ -109,39 +270,26 @@
   outline: none
   span
     font-size: 3em
-    font-weight: bold
+    font-weight: 700
     text-align: center
     color: #fff
     position: absolute
     left: 0
     top: 45px
 
-/* File: /home/troex/Sites/git/elfinder-2.x/css/common.css
-/********************************************
-/*            COMMON ELFINDER STUFFS
-/********************************************
-
-/* common container
-
 .elfinder
   padding: 0
   position: relative
   display: block
 
-/* right to left enviroment
-
 .elfinder-rtl
   text-align: right
   direction: rtl
-
-/* nav and cwd container
 
 .elfinder-workzone
   padding: 0
   position: relative
   overflow: hidden
-
-/* dir/file permissions and symlink markers
 
 .elfinder-perms, .elfinder-symlink
   position: absolute
@@ -151,30 +299,20 @@
   background-repeat: no-repeat
   background-position: 0 -528px
 
-/* noaccess
-
 .elfinder-na .elfinder-perms
   background-position: 0 -96px
-
-/* read only
 
 .elfinder-ro .elfinder-perms
   background-position: 0 -64px
 
-/* write only
-
 .elfinder-wo .elfinder-perms
   background-position: 0 -80px
-
-/* drag helper
 
 .elfinder-drag-helper
   width: 60px
   height: 50px
   padding: 0 0 0 25px
   z-index: 100000
-
-/* drag helper 'plus' icon
 
 .elfinder-drag-helper-icon-plus
   position: absolute
@@ -185,12 +323,8 @@
   background: image_url('el_vfs/elfinder/toolbar.png') 0 -544px no-repeat
   display: none
 
-/* show 'plus' icon when ctrl/shift pressed
-
 .elfinder-drag-helper-plus .elfinder-drag-helper-icon-plus
   display: block
-
-/* files num in drag helper
 
 .elfinder-drag-num
   position: absolute
@@ -201,34 +335,25 @@
   text-align: center
   padding-top: 2px
   font-size: 12px
-  font-weight: bold
+  font-weight: 700
   color: #fff
   background-color: red
   -moz-border-radius: 8px
   -webkit-border-radius: 8px
   border-radius: 8px
 
-/* icon in drag helper
-
 .elfinder-drag-helper .elfinder-cwd-icon
   margin: 0 0 0 -24px
   float: left
-
-/* transparent overlay >_<
 
 .elfinder-overlay
   opacity: 0
   filter: Alpha(Opacity = 0)
 
-/* panels under/below cwd (for search field etc)
-
 .elfinder .elfinder-panel
   position: relative
   background-image: none
   padding: 7px 12px
-
-/* File: /home/troex/Sites/git/elfinder-2.x/css/contexmenu.css
-/* menu and submenu
 
 .elfinder-contextmenu
   display: none
@@ -247,17 +372,11 @@
   padding: 4px 0
   top: 5px
 
-/* submenu
-
-/* submenu in rtl/ltr enviroment
-
 .elfinder-contextmenu-ltr .elfinder-contextmenu-sub
   margin-left: -5px
 
 .elfinder-contextmenu-rtl .elfinder-contextmenu-sub
   margin-right: -5px
-
-/* menu item
 
 .elfinder-contextmenu-item
   position: relative
@@ -267,13 +386,9 @@
   white-space: nowrap
   cursor: default
 
-/* text in item
-
 .elfinder-contextmenu .elfinder-contextmenu-item span
   font-size: .76em
   display: block
-
-/* submenu item in rtl/ltr enviroment
 
 .elfinder-contextmenu-ltr .elfinder-contextmenu-item
   text-align: left
@@ -287,14 +402,10 @@
 .elfinder-contextmenu-rtl .elfinder-contextmenu-sub .elfinder-contextmenu-item
   padding-right: 12px
 
-/* command/submenu icon
-
 .elfinder-contextmenu-arrow, .elfinder-contextmenu-icon
   position: absolute
   top: 50%
   margin-top: -8px
-
-/* command icon in rtl/ltr enviroment
 
 .elfinder-contextmenu-ltr .elfinder-contextmenu-icon
   left: 8px
@@ -302,14 +413,10 @@
 .elfinder-contextmenu-rtl .elfinder-contextmenu-icon
   right: 8px
 
-/* arrow icon
-
 .elfinder-contextmenu-arrow
   width: 16px
   height: 16px
   background: image_url('el_vfs/elfinder/arrows-normal.png') 5px 4px no-repeat
-
-/* arrow icon in rtl/ltr enviroment
 
 .elfinder-contextmenu-ltr .elfinder-contextmenu-arrow
   right: 5px
@@ -318,66 +425,53 @@
   left: 5px
   background-position: 0 -10px
 
-/* disable ui border/bg image on hover
-
 .elfinder-contextmenu .ui-state-hover
   border: 0 solid
   background-image: none
 
-/* separator
-
 .elfinder-contextmenu-separator
-  height: 0px
+  height: 0
   border-top: 1px solid #ccc
   margin: 0 1px
 
-/* File: /home/troex/Sites/git/elfinder-2.x/css/cwd.css
-/*****************************************************************
-/*                     CURRENT DIRECTORY STYLES
-/*****************************************************************
+.elfinder-cwd-wrapper
+  overflow: auto
+  position: relative
+  padding: 2px
+  margin: 0
 
-/* container
+.elfinder-cwd-wrapper-list
+  padding: 0
 
 .elfinder-cwd
-  overflow: auto
   position: relative
   font-size: .7em
   cursor: default
-  /*	border:2px solid transparent;
-  padding: 2px
+  padding: 0
   margin: 0
-  /*	border:2px solid red;
-  /*	margin-right:0 ;
+  -moz-user-select: -moz-none
+  -khtml-user-select: none
+  -webkit-user-select: none
+  user-select: none
 
-/* container active on dropenter
-
-.elfinder .elfinder-cwd.elfinder-droppable-active
+.elfinder .elfinder-cwd-wrapper.elfinder-droppable-active
   padding: 0
   border: 2px solid #8cafed
 
-/************************** ICONS VIEW *******************************
-
-/* file container
-
 .elfinder-cwd-view-icons .elfinder-cwd-file
-  width: 80px
+  width: 120px
   height: 80px
   padding-bottom: 2px
   cursor: default
   overflow: hidden
-  /*	font-family:verdana, trebuchet ms, arial,sans-serif;
-
-/* ltr/rtl enviroment
 
 .elfinder-ltr .elfinder-cwd-view-icons .elfinder-cwd-file
   float: left
-  margin: 0 3px 3px 0
+  margin: 0 3px 12px 0
 
 .elfinder-rtl .elfinder-cwd-view-icons .elfinder-cwd-file
   float: right
-  margin: 0 0 3px 3px
-
-/* remove ui hover class border
+  margin: 0 0 5px 3px
 
 .elfinder-cwd-view-icons
   .elfinder-cwd-file .ui-state-hover
@@ -385,16 +479,16 @@
   .elfinder-cwd-file-wrapper
     width: 52px
     height: 52px
-    margin: 1px auto 1px auto
+    margin: 1px auto
     padding: 2px
     position: relative
   .elfinder-cwd-filename
     text-align: center
-    white-space: nowrap
+    white-space: pre
     overflow: hidden
     text-overflow: ellipsis
     -o-text-overflow: ellipsis
-    margin: 3px 1px 0 1px
+    margin: 3px 1px 0
     padding: 1px
     -moz-border-radius: 8px
     -webkit-border-radius: 8px
@@ -404,15 +498,7 @@
     right: 2px
   .elfinder-symlink
     bottom: 6px
-    left: 0px
-
-/* icon wrapper to create selected highlight around icon
-
-/* file name place
-
-/* permissions/symlink markers
-
-/* icon/thumbnail
+    left: 0
 
 .elfinder-cwd-icon
   display: block
@@ -424,12 +510,8 @@
   -webkit-background-clip: padding-box
   background-clip: padding-box
 
-/* 'opened folder' icon on dragover
-
 .elfinder-cwd .elfinder-droppable-active .elfinder-cwd-icon
   background-position: 0 -100px
-
-/* mimetypes icons
 
 .elfinder-cwd-icon-directory
   background-position: 0 -50px
@@ -488,7 +570,7 @@
 .elfinder-cwd-icon-xml
   background-position: 0 -1000px
 
-.elfinder-cwd-icon-zip, .elfinder-cwd-icon-x-7z-compressed
+.elfinder-cwd-icon-zip, .elfinder-cwd-icon-x-zip, .elfinder-cwd-icon-x-7z-compressed
   background-position: 0 -1050px
 
 .elfinder-cwd-icon-x-gzip, .elfinder-cwd-icon-x-tar
@@ -506,11 +588,9 @@
 .elfinder-cwd-icon-group
   background-position: 0 -1300px
 
-/* textfield inside icon
-
 .elfinder-cwd input
   width: 100%
-  border: 0px solid
+  border: 0 solid
   margin: 0
   padding: 0
 
@@ -519,16 +599,11 @@
     text-align: center
   text-align: center
 
-/************************************  LIST VIEW ***********************************
-
-.elfinder-cwd-view-list
-  padding: 0 0 4px 0
-
 .elfinder-cwd table
   width: 100%
   border-collapse: collapse
   border: 0 solid
-  margin: 0
+  margin: 0 0 10px
 
 .elfinder .elfinder-cwd table
   thead
@@ -540,7 +615,7 @@
       font-size: .9em
   td
     padding: 3px 12px
-    white-space: nowrap
+    white-space: pre
     overflow: hidden
     text-align: right
     cursor: default
@@ -559,13 +634,9 @@
 .elfinder-odd-row
   background: #eee
 
-/* filename container
-
 .elfinder-cwd-view-list .elfinder-cwd-file-wrapper
   width: 97%
   position: relative
-
-/* filename container in ltr/rtl enviroment
 
 .elfinder-ltr .elfinder-cwd-view-list .elfinder-cwd-file-wrapper
   padding-left: 23px
@@ -573,22 +644,16 @@
 .elfinder-rtl .elfinder-cwd-view-list .elfinder-cwd-file-wrapper
   padding-right: 23px
 
-/* premissions/symlink marker
-
 .elfinder-cwd-view-list
   .elfinder-perms, .elfinder-symlink
     top: 50%
     margin-top: -6px
-
-/* markers in ltr/rtl enviroment
 
 .elfinder-ltr .elfinder-cwd-view-list
   .elfinder-perms
     left: 7px
   .elfinder-symlink
     left: -7px
-
-/* file icon
 
 .elfinder-cwd-view-list td .elfinder-cwd-icon
   width: 16px
@@ -598,27 +663,18 @@
   margin-top: -8px
   background-image: image_url('el_vfs/elfinder/icons-small.png')
 
-/* icon in ltr/rtl enviroment
-
 .elfinder-ltr .elfinder-cwd-view-list .elfinder-cwd-icon
   left: 0
 
 .elfinder-rtl .elfinder-cwd-view-list .elfinder-cwd-icon
   right: 0
 
-/* File: /home/troex/Sites/git/elfinder-2.x/css/dialog.css
-/********************************************
-/*                DIALOGS STYLES
-/********************************************
-
-/* common dialogs class
-
 .std42-dialog
   padding: 0
   .ui-dialog-titlebar
-    border-left: 0 solid
-    border-top: 0 solid
-    border-right: 0 solid
+    border-left: 0 solid transparent
+    border-top: 0 solid transparent
+    border-right: 0 solid transparent
     -moz-border-radius-bottomleft: 0
     -webkit-border-bottom-left-radius: 0
     border-bottom-left-radius: 0
@@ -626,22 +682,18 @@
     -webkit-border-bottom-right-radius: 0
     border-bottom-right-radius: 0
     font-size: .82em
-    font-weight: normal
+    font-weight: 400
     padding: .2em 1em
   .ui-dialog-titlebar-close
     padding: 1px
     &:hover
       padding: 1px
 
-/* titlebar
-
 .elfinder-rtl .elfinder-dialog .ui-dialog-titlebar
   text-align: right
   .ui-dialog-titlebar-close
     right: auto
     left: .3em
-
-/* content
 
 .std42-dialog
   .ui-dialog-content
@@ -659,8 +711,6 @@
       span
         padding: 2px 9px
 
-/* buttons
-
 .elfinder-dialog
   .ui-resizable-e, .ui-resizable-s
     width: 0
@@ -669,22 +719,16 @@
 .std42-dialog .ui-button input
   cursor: pointer
 
-/* error/notify/confirm dialogs icon
-
 .elfinder-dialog-icon
-  position: absolute
+  float: left
   width: 32px
   height: 32px
-  left: 12px
-  top: 50%
-  margin-top: -15px
   background: image_url('el_vfs/elfinder/dialogs.png') 0 0 no-repeat
+  margin: 0 10px 10px 0
 
 .elfinder-rtl .elfinder-dialog-icon
   left: auto
   right: 12px
-
-/*********************** ERROR DIALOG *************************
 
 .elfinder-dialog-error .ui-dialog-content, .elfinder-dialog-confirm .ui-dialog-content
   padding-left: 56px
@@ -695,15 +739,11 @@
     padding-left: 0
     padding-right: 56px
 
-/*********************** NOTIFY DIALOG *************************
-
 .elfinder-dialog-notify
   .ui-dialog-titlebar-close
     display: none
   .ui-dialog-content
     padding: 0
-
-/* one notification container
 
 .elfinder-notify
   border-bottom: 1px solid #ccc
@@ -720,8 +760,6 @@
 
 .elfinder-notify:last-child
   border: 0 solid
-
-/* progressbar
 
 .elfinder-notify-progressbar
   width: 180px
@@ -740,8 +778,6 @@
   -moz-border-radius: 2px
   -webkit-border-radius: 2px
   border-radius: 2px
-
-/* icons
 
 .elfinder-dialog-icon-open, .elfinder-dialog-icon-file, .elfinder-dialog-icon-reload
   background-position: 0 -225px
@@ -776,15 +812,11 @@
 .elfinder-dialog-icon-search
   background-position: 0 -402px
 
-/*********************** CONFIRM DIALOG *************************
-
 .elfinder-dialog-confirm-applyall
   padding-top: 3px
 
 .elfinder-dialog-confirm .elfinder-dialog-icon
   background-position: 0 -32px
-
-/*********************** FILE INFO DIALOG *************************
 
 .elfinder-info-title
   .elfinder-cwd-icon
@@ -794,12 +826,12 @@
     margin-right: 1em
   strong
     display: block
-    padding: .3em 0 .5em 0
+    padding: .3em 0 .5em
 
 .elfinder-info-tb
   min-width: 200px
   border: 0 solid
-  margin: 1em .2em 1em .2em
+  margin: 1em .2em
   font-size: .9em
   td
     white-space: nowrap
@@ -820,8 +852,6 @@
   float: left
   background: image_url('el_vfs/elfinder/spinner-mini.gif') center center no-repeat
   margin: 0 5px
-
-/*********************** UPLOAD DIALOG *************************
 
 .elfinder-upload-dropbox
   font-size: 1.2em
@@ -852,13 +882,11 @@
         padding: 0 20px
         font-size: 3em
 
-/* dialog for elFinder itself
-
 .dialogelfinder .dialogelfinder-drag
   border-left: 0 solid
   border-top: 0 solid
   border-right: 0 solid
-  font-weight: normal
+  font-weight: 400
   font-size: .9em
   padding: 2px 12px
   cursor: move
@@ -879,13 +907,6 @@
 .elfinder-rtl .dialogelfinder-drag-close
   left: 12px
 
-/* File: /home/troex/Sites/git/elfinder-2.x/css/navbar.css
-/********************************************
-/*              NAVIGATION PANEL
-/********************************************
-
-/* container
-
 .elfinder .elfinder-navbar
   width: 230px
   padding: 3px 5px
@@ -895,28 +916,27 @@
   border-bottom: 0 solid
   overflow: auto
   display: none
-  /*	border:1px solid #111;
-
-/* ltr/rtl enviroment
+  position: relative
+  -moz-user-select: none
+  -khtml-user-select: none
+  -webkit-user-select: none
+  user-select: none
 
 .elfinder-ltr .elfinder-navbar
   float: left
   border-left: 0 solid
-  padding-right: 10px
 
 .elfinder-rtl .elfinder-navbar
   float: right
   border-right: 0 solid
-  padding-left: 10px
 
-/* folders tree container
+.elfinder-ltr .ui-resizable-e
+  margin-left: 10px
 
 .elfinder-tree
   display: table
   width: 100%
-  margin: 0 0 .5em 0
-
-/* folder
+  margin: 0 0 .5em
 
 .elfinder-navbar-dir
   position: relative
@@ -928,15 +948,11 @@
   border: 1px solid transparent
   cursor: default
 
-/* ltr/rtl enviroment
-
 .elfinder-ltr .elfinder-navbar-dir
   padding-left: 35px
 
 .elfinder-rtl .elfinder-navbar-dir
   padding-right: 35px
-
-/* arrow before icon
 
 .elfinder-navbar-arrow
   width: 12px
@@ -947,17 +963,12 @@
   margin-top: -8px
   background-image: image_url('el_vfs/elfinder/arrows-normal.png')
   background-repeat: no-repeat
-  /*	border:1px solid #111;
 
 .ui-state-active .elfinder-navbar-arrow
   background-image: image_url('el_vfs/elfinder/arrows-active.png')
 
-/* collapsed/expanded arrow view
-
 .elfinder-navbar-collapsed .elfinder-navbar-arrow
   display: block
-
-/* arrow ltr/rtl enviroment
 
 .elfinder-ltr .elfinder-navbar-collapsed .elfinder-navbar-arrow
   background-position: 0 4px
@@ -967,10 +978,8 @@
   background-position: 0 -10px
   right: 0
 
-.elfinder-ltr .elfinder-navbar-expanded.elfinder-navbar-arrow, .elfinder-rtl .elfinder-navbar-expanded.elfinder-navbar-arrow
+.elfinder-ltr .elfinder-navbar-expanded .elfinder-navbar-arrow, .elfinder-rtl .elfinder-navbar-expanded .elfinder-navbar-arrow
   background-position: 0 -21px
-
-/* folder icon
 
 .elfinder-navbar-icon
   width: 16px
@@ -982,15 +991,11 @@
   background-repeat: no-repeat
   background-position: 0 -16px
 
-/* ltr/rtl enviroment
-
 .elfinder-ltr .elfinder-navbar-icon
   left: 14px
 
 .elfinder-rtl .elfinder-navbar-icon
   right: 14px
-
-/* root folder
 
 .elfinder-tree .elfinder-navbar-root .elfinder-navbar-icon
   background-position: 0 0
@@ -998,25 +1003,17 @@
 .elfinder-places .elfinder-navbar-root .elfinder-navbar-icon
   background-position: 0 -48px
 
-/* icon in active/hove/dropactive state
-
-.ui-state-active .elfinder-navbar-icon, .elfinder-droppable-active .elfinder-navbar-icon, .ui-state-hover.elfinder-navbar-icon
+.ui-state-active .elfinder-navbar-icon, .elfinder-droppable-active .elfinder-navbar-icon, .ui-state-hover .elfinder-navbar-icon
   background-position: 0 -32px
-
-/* subdirs tree
 
 .elfinder-navbar-subtree
   display: none
-
-/* ltr/rtl enviroment
 
 .elfinder-ltr .elfinder-navbar-subtree
   margin-left: 12px
 
 .elfinder-rtl .elfinder-navbar-subtree
   margin-right: 12px
-
-/* spinner
 
 .elfinder-navbar-spinner
   width: 14px
@@ -1027,8 +1024,6 @@
   margin-top: -7px
   background: image_url('el_vfs/elfinder/spinner-mini.gif') center center no-repeat
 
-/* spinner ltr/rtl enviroment
-
 .elfinder-ltr .elfinder-navbar-spinner
   left: 0
   margin-left: -2px
@@ -1037,13 +1032,9 @@
   right: 0
   margin-right: -2px
 
-/* permissions marker
-
 .elfinder-navbar .elfinder-perms
   top: 50%
   margin-top: -8px
-
-/* permissions/symlink markers ltr/rtl enviroment
 
 .elfinder-ltr .elfinder-navbar .elfinder-perms
   left: 18px
@@ -1057,22 +1048,15 @@
 .elfinder-rtl .elfinder-navbar .elfinder-symlink
   right: 8px
 
-/* resizable
-
 .elfinder-navbar .ui-resizable-handle
   width: 12px
-  background: transparent image_url('el_vfs/elfinder/resize.png') center center no-repeat
-
-.elfinder-ltr .elfinder-navbar .ui-resizable-handle
-  right: 0
-
-.elfinder-rtl .elfinder-navbar .ui-resizable-handle
+  background: image_url('el_vfs/elfinder/resize.png') center center no-repeat
   left: 0
 
 .elfinder-nav-handle-icon
   position: absolute
   top: 50%
-  margin: -8px 2px 0 2px
+  margin: -8px 2px 0
   opacity: .5
   filter: Alpha(Opacity = 50)
 
@@ -1084,11 +1068,6 @@
 .elfinder-place-drag .elfinder-navbar-dir
   font-size: .9em
 
-/* File: /home/troex/Sites/git/elfinder-2.x/css/places.css
-
-/* File: /home/troex/Sites/git/elfinder-2.x/css/quicklook.css
-/* quicklook window
-
 .elfinder-quicklook
   position: absolute
   background: image_url('el_vfs/elfinder/quicklook-bg.png')
@@ -1097,7 +1076,7 @@
   border-radius: 7px
   -moz-border-radius: 7px
   -webkit-border-radius: 7px
-  padding: 20px 0 40px 0
+  padding: 20px 0 40px
   .ui-resizable-se
     width: 14px
     height: 14px
@@ -1105,14 +1084,11 @@
     bottom: 3px
     background: image_url('el_vfs/elfinder/toolbar.png') 0 -496px no-repeat
 
-/* quicklook fullscreen window
-
 .elfinder-quicklook-fullscreen
   border-radius: 0
   -moz-border-radius: 0
   -webkit-border-radius: 0
   -webkit-background-clip: padding-box
-  /*	background-clip:padding-box;
   padding: 0
   background: #000
   z-index: 90000
@@ -1121,12 +1097,6 @@
     display: none
   .elfinder-quicklook-preview
     border: 0 solid
-
-/* hide titlebar in fullscreen mode
-
-/* hide preview border in fullscreen mode
-
-/* quicklook titlebar
 
 .elfinder-quicklook-titlebar
   text-align: center
@@ -1144,16 +1114,12 @@
   border-top-right-radius: 7px
   cursor: move
 
-/* window title
-
 .elfinder-quicklook-title
   font-size: .7em
   color: #fff
   white-space: nowrap
   overflow: hidden
   padding: 2px 0
-
-/* icon 'close' in titlebar
 
 .elfinder-quicklook-titlebar .ui-icon
   position: absolute
@@ -1164,8 +1130,6 @@
   height: 16px
   cursor: default
 
-/* main part of quicklook window
-
 .elfinder-quicklook-preview
   overflow: hidden
   position: relative
@@ -1174,8 +1138,6 @@
   border-right: 1px solid transparent
   height: 100%
 
-/* wrapper for file info/icon
-
 .elfinder-quicklook-info-wrapper
   position: absolute
   width: 100%
@@ -1183,25 +1145,17 @@
   top: 50%
   margin-top: -50px
 
-/* file info
-
 .elfinder-quicklook-info
   padding: 0 12px 0 112px
   .elfinder-quicklook-info-data:first-child
     color: #fff
-    font-weight: bold
+    font-weight: 700
     padding-bottom: .5em
-
-/* file name in info
-
-/* other data in info
 
 .elfinder-quicklook-info-data
   font-size: .72em
   padding-bottom: .2em
   color: #fff
-
-/* file icon
 
 .elfinder-quicklook .elfinder-cwd-icon
   position: absolute
@@ -1209,13 +1163,9 @@
   top: 50%
   margin-top: -20px
 
-/* image in preview
-
 .elfinder-quicklook-preview img
   display: block
   margin: 0 auto
-
-/* navigation bar on quicklook window bottom
 
 .elfinder-quicklook-navbar
   position: absolute
@@ -1223,14 +1173,12 @@
   bottom: 4px
   width: 140px
   height: 32px
-  padding: 0px
+  padding: 0
   margin-left: -70px
   border: 1px solid transparent
   border-radius: 19px
   -moz-border-radius: 19px
   -webkit-border-radius: 19px
-
-/* navigation bar in fullscreen mode
 
 .elfinder-quicklook-fullscreen
   .elfinder-quicklook-navbar
@@ -1242,10 +1190,6 @@
   .elfinder-quicklook-navbar-icon-close, .elfinder-quicklook-navbar-separator
     display: inline
 
-/* show close icon in fullscreen mode
-
-/* icons in navbar
-
 .elfinder-quicklook-navbar-icon
   width: 32px
   height: 32px
@@ -1253,33 +1197,21 @@
   float: left
   background: image_url('el_vfs/elfinder/quicklook-icons.png') 0 0 no-repeat
 
-/* fullscreen icon
-
 .elfinder-quicklook-navbar-icon-fullscreen
   background-position: 0 -64px
-
-/* exit fullscreen icon
 
 .elfinder-quicklook-navbar-icon-fullscreen-off
   background-position: 0 -96px
 
-/* prev file icon
-
 .elfinder-quicklook-navbar-icon-prev
   background-position: 0 0
-
-/* next file icon
 
 .elfinder-quicklook-navbar-icon-next
   background-position: 0 -32px
 
-/* close icon
-
 .elfinder-quicklook-navbar-icon-close
   background-position: 0 -128px
   display: none
-
-/* icons separator
 
 .elfinder-quicklook-navbar-separator
   width: 1px
@@ -1287,8 +1219,6 @@
   float: left
   border-left: 1px solid #fff
   display: none
-
-/* text files preview wrapper
 
 .elfinder-quicklook-preview-text-wrapper
   width: 100%
@@ -1298,13 +1228,9 @@
   font-size: .9em
   overflow: auto
 
-/* text preview
-
 pre.elfinder-quicklook-preview-text
   margin: 0
   padding: 3px 9px
-
-/* html/pdf preview
 
 .elfinder-quicklook-preview-html, .elfinder-quicklook-preview-pdf
   width: 100%
@@ -1313,13 +1239,9 @@ pre.elfinder-quicklook-preview-text
   border: 0 solid
   margin: 0
 
-/* swf preview container
-
 .elfinder-quicklook-preview-flash
   width: 100%
   height: 100%
-
-/* audio preview container
 
 .elfinder-quicklook-preview-audio
   width: 100%
@@ -1327,76 +1249,66 @@ pre.elfinder-quicklook-preview-text
   bottom: 0
   left: 0
 
-/* audio preview using embed
-
 embed.elfinder-quicklook-preview-audio
   height: 30px
-  background: transparent
-
-/* video preview container
+  background: 0 0
 
 .elfinder-quicklook-preview-video
   width: 100%
   height: 100%
 
-/* File: /home/troex/Sites/git/elfinder-2.x/css/statusbar.css
-/*****************************************************************
-/*                           STATUSBAR STYLES
-/*****************************************************************
-
-/* statusbar container
-
 .elfinder-statusbar
   text-align: center
-  font-weight: normal
+  font-weight: 400
   padding: .2em .5em
-  border-right: 0 solid
-  border-bottom: 0 solid
-  border-left: 0 solid
+  border-right: 0 solid transparent
+  border-bottom: 0 solid transparent
+  border-left: 0 solid transparent
   a
     text-decoration: none
   div
     font-size: .7em
 
-/* path in statusbar
+.elfinder-path
+  max-width: 30%
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+  -o-text-overflow: ellipsis
 
 .elfinder-ltr .elfinder-path
   float: left
 
-.elfinder-rtl .elfinder-path, .elfinder-ltr .elfinder-stat-size
+.elfinder-rtl .elfinder-path
   float: right
 
-/* total/selected size in statusbar
+.elfinder-stat-size
+  white-space: nowrap
+
+.elfinder-ltr .elfinder-stat-size
+  float: right
 
 .elfinder-rtl .elfinder-stat-size
   float: left
 
-/* File: /home/troex/Sites/git/elfinder-2.x/css/toolbar.css
-/********************************************
-/*               TOOLBAR STYLES
-/********************************************
-/* toolbar container
+.elfinder-stat-selected
+  white-space: nowrap
+  overflow: hidden
 
 .elfinder-toolbar
-  padding: 4px 0 3px 0
-  border-left: 0 solid
-  border-top: 0 solid
-  border-right: 0 solid
-
-/* container for button's group
+  padding: 4px 0 3px
+  border-left: 0 solid transparent
+  border-top: 0 solid transparent
+  border-right: 0 solid transparent
 
 .elfinder-buttonset
   margin: 1px 4px
   float: left
-  background: transparent
+  background: 0 0
   padding: 0
   -moz-border-radius: 4px
   -webkit-border-radius: 4px
   border-radius: 4px
-
-/*.elfinder-buttonset:first-child { margin:0; }
-
-/* button
 
 .elfinder
   .elfinder-button
@@ -1427,8 +1339,6 @@ embed.elfinder-quicklook-preview-audio
     -webkit-border-bottom-right-radius: 4px
     border-bottom-right-radius: 4px
 
-/* separator between buttons, required for berder between button with ui color
-
 .elfinder-toolbar-button-separator
   float: left
   padding: 0
@@ -1438,8 +1348,6 @@ embed.elfinder-quicklook-preview-audio
   border-bottom: 0 solid
   width: 0
 
-/* change icon opacity^ not button
-
 .elfinder .elfinder-button.ui-state-disabled
   opacity: 1
   filter: Alpha(Opacity = 100)
@@ -1447,20 +1355,14 @@ embed.elfinder-quicklook-preview-audio
     opacity: .4
     filter: Alpha(Opacity = 40)
 
-/* rtl enviroment
-
 .elfinder-rtl .elfinder-buttonset
   float: right
-
-/* icon inside button
 
 .elfinder-button-icon
   width: 16px
   height: 16px
   display: block
   background: image_url('el_vfs/elfinder/toolbar.png') no-repeat
-
-/* buttons icons
 
 .elfinder-button-icon-home
   background-position: 0 0
@@ -1540,12 +1442,20 @@ embed.elfinder-quicklook-preview-audio
 .elfinder-button-icon-resize
   background-position: 0 -512px
 
-/* button with dropdown menu
+.elfinder-button-icon-search
+  background-position: 0 -561px
+
+.elfinder-button-icon-sort
+  background-position: 0 -577px
+
+.elfinder-button-icon-rotate-r
+  background-position: 0 -625px
+
+.elfinder-button-icon-rotate-l
+  background-position: 0 -641px
 
 .elfinder .elfinder-menubutton
   overflow: visible
-
-/* menu
 
 .elfinder-button-menu
   position: absolute
@@ -1553,20 +1463,31 @@ embed.elfinder-quicklook-preview-audio
   top: 26px
   padding: 3px 0
 
-/* menu item
-
 .elfinder-button-menu-item
   white-space: nowrap
   font-size: .72em
   cursor: default
   padding: 5px 19px
-
-/* fix hover ui class
+  position: relative
 
 .elfinder-button-menu .ui-state-hover
   border: 0 solid
 
-/* hack for upload button
+.elfinder-menu-item-sort-dir
+  width: 16px
+  height: 16px
+  position: absolute
+  left: 2px
+  top: 50%
+  margin-top: -8px
+  background: image_url('el_vfs/elfinder/toolbar.png') 0 -594px no-repeat
+  display: none
+
+.elfinder-button-menu-item-selected .elfinder-menu-item-sort-dir
+  display: block
+
+.elfinder-menu-item-sort-desc .elfinder-menu-item-sort-dir
+  background-position: 0 -608px
 
 .elfinder-button form
   position: absolute
@@ -1578,20 +1499,17 @@ embed.elfinder-quicklook-preview-audio
 
 .elfinder
   .elfinder-button form input
-    background: transparent
+    background: 0 0
     cursor: default
   .elfinder-button-search
     border: 0 solid
-    background: transparent
+    background: 0 0
     padding: 0
     margin: 1px 4px
     height: auto
+    min-height: 26px
     float: right
     width: 202px
-
-/* search 'button'
-
-/* ltr/rte enviroment
 
 .elfinder-ltr .elfinder-button-search
   float: right
@@ -1601,15 +1519,12 @@ embed.elfinder-quicklook-preview-audio
   float: left
   margin-left: 10px
 
-/* search text field
-
 .elfinder-button-search input
   width: 160px
   height: 22px
   padding: 0 20px
   font-size: .8em
   line-height: 22px
-  border: 0 solid
   border: 1px solid #aaa
   -moz-border-radius: 12px
   -webkit-border-radius: 12px
@@ -1619,17 +1534,13 @@ embed.elfinder-quicklook-preview-audio
 .elfinder-rtl .elfinder-button-search input
   direction: rtl
 
-/* icons
-
 .elfinder-button-search .ui-icon
   position: absolute
   height: 18px
   top: 50%
-  margin: -7px 4px 0 4px
+  margin: -9px 4px 0
   opacity: .6
   filter: Alpha(Opacity = 60)
-
-/* search/close icons
 
 .elfinder-ltr .elfinder-button-search .ui-icon-search
   left: 0

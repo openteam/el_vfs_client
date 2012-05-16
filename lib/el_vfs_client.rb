@@ -4,7 +4,7 @@ require 'rails'
 module ElVfsClient
   class Engine < ::Rails::Engine
     initializer :assets do |config|
-      ::Rails.application.config.assets.precompile += %w( engine.js el_vfs/el_vfs.css )
+      ::Rails.application.config.assets.precompile += %w( engine.js el_vfs/el_vfs.css sounds/rm.wav )
     end
   end
 end
