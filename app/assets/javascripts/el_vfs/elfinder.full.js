@@ -1560,9 +1560,6 @@ window.elFinder = function(node, opts) {
       cache(e.data.files);
     })
     .bind('rm', function(e) {
-      var play  = beeper.canPlayType && beeper.canPlayType('audio/wav; codecs="1"');
-
-      play && play != '' && play != 'no' && $(beeper).html('<source src="./assets/rm.wav" type="audio/wav">')[0].play()
     })
 
     ;
