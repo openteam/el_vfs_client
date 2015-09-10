@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = ElVfsClient::VERSION
   s.authors     = ['Dmitry Lihachev', 'Evgeny Lapin', 'Iliy Manin', 'Evgeniy Serykh']
   s.email       = ['mail@openteam.ru']
-  s.homepage    = 'http://github.com/openteam/el_vfs_client'
+  s.homepage    = 'https://github.com/openteam/el_vfs_client'
   s.summary     = 'Summary of ElVfsClient.'
   s.description = 'Description of ElVfsClient.'
 
