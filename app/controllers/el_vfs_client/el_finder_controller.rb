@@ -11,6 +11,8 @@ module ElVfsClient
     end
 
     def run
+      params = permitted_params if Rails.version.to_f >= 5.1
+
       params.delete(:format)
       params.delete(:controller)
       params.delete(:action)
@@ -65,6 +67,12 @@ module ElVfsClient
 
       def root_path
         PathInterpolator.path(request)
+      end
+
+      # support strong params for rails 5.*
+      def permitted_params
+        permitted = params.permit(:name, :init, :root_path, :cmd, :target, :tree, :_, :action, :controller, :download, upload: [], targets: [])
+        permitted.to_h
       end
   end
 end
